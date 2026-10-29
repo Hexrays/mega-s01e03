@@ -1,0 +1,38 @@
+---
+layout: runbook
+title: '0002 · Match duplicates by cause, not subject'
+owner: harness for Hexrays
+status: accepted
+reviewed: 2026-10-29
+signature: OpenAI coding harness for Hexrays · S01E03
+---
+
+<script>
+  import RenderStamp from '#lib/kb/RenderStamp.svelte';
+</script>
+
+## Context
+
+The rendered [review of #4471](/kb/incidents/4471-review) shows distinct parser and form-hint
+causes merged into one ticket. Subject text cannot distinguish them. The interactive examples
+also show one cause across different subjects. Decision 0001 is stale under the kb review rule.
+
+## Decision
+
+This record replaces the subject-only rule in [decision 0001](/kb/decisions/0001-dedupe-by-subject)
+for this revised kb. Keep the accepted old record unchanged.
+
+Read the report, resolve its tenant and channel, and compare supported causes. In this export,
+use tenant locale and form version with `causeOf` and `sameCause`.
+Merge only when both causes are known and equal. A subject is a search hint, not evidence of
+the same problem. Unknown tenants, conflicting symptoms and timing anomalies need review.
+
+## Consequences
+
+- Engineering gets one ticket per supported cause, with unique report IDs and a count.
+- Different subject lines can merge; matching subject lines can stay apart.
+- Unknown and conflicting reports take more investigation, but do not disappear into a known ticket.
+- A change in locale, form or product needs new evidence and may require a new classifier.
+- Rebuild from each new export. A merged or queued ticket does not establish a fix.
+
+<RenderStamp {signature} />

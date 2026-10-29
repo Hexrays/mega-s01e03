@@ -1,0 +1,50 @@
+---
+layout: runbook
+title: 'Triage: duplicate reports'
+owner: support desk
+status: accepted
+reviewed: 2026-10-29
+signature: OpenAI coding harness for Hexrays · S01E03
+---
+
+<script>
+  import DedupeExplorer from '#lib/kb/DedupeExplorer.svelte';
+  import Callout from '#lib/kb/Callout.svelte';
+  import RenderStamp from '#lib/kb/RenderStamp.svelte';
+</script>
+
+Keep one ticket per supported cause, not one ticket per subject line.
+The [review of #4471](/kb/incidents/4471-review) shows why the distinction matters.
+
+## The rule
+
+[Decision 0002](/kb/decisions/0002-dedupe-by-cause) replaces the subject-only rule in
+[decision 0001](/kb/decisions/0001-dedupe-by-subject). Keep that accepted record unchanged.
+
+1. Deduplicate exported rows by report ID.
+2. Read the body and resolve the tenant's locale, form version and report channel.
+3. Compare supported causes with `causeOf` and `sameCause`, not subject text.
+4. Merge only known, matching causes. Keep unknown or conflicting cases for investigation.
+5. Keep each report's ID and the count with its engineering ticket.
+
+<Callout>
+Different subjects can describe the same cause. Matching subjects can describe different causes.
+Browser locale and intake tags are not substitutes for the tenant directory.
+</Callout>
+
+## Try it
+
+<DedupeExplorer />
+
+## When you are unsure
+
+Do not assume a duplicate. Get tenant details and compare symptoms and evidence.
+The five timing notes in the incident review remain visible within the supplied parser group
+until investigation supports a different classification.
+
+## Maintenance
+
+Rebuild from each new desk export and review the page when the evidence changes.
+A ticket marked known, merged, or queued is not proof of a verified fix.
+
+<RenderStamp {signature} />

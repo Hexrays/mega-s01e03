@@ -1,0 +1,35 @@
+---
+layout: runbook
+title: '#4471 · dates parse mm/dd in eu locales'
+owner: support desk
+status: reviewed
+reviewed: 2026-10-29
+---
+
+<script>
+  import CauseTable from '#lib/kb/CauseTable.svelte';
+  import QueueTimeline from '#lib/kb/QueueTimeline.svelte';
+  import Callout from '#lib/kb/Callout.svelte';
+</script>
+
+The desk merged reports about wrong booking dates into this ticket. The export's old prose
+called it one known issue with one fix queued. The rendered table below shows two causes.
+
+<Callout>
+Superseded explanation: one ticket does not mean one cause. Read the signed
+[incident review](/kb/incidents/4471-review) for separate tickets, evidence and limits.
+</Callout>
+
+## What was merged
+
+<CauseTable ticket={4471} />
+
+## Since April
+
+<QueueTimeline ticket={4471} />
+
+## Lessons
+
+- Deduplicate by report ID, then group by supported cause. Subject matches are not enough.
+- A merge timestamp records a desk action, not when the bug started or when it was fixed.
+- Preserve timing anomalies for investigation; a routing classifier does not prove their root cause.

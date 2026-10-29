@@ -1,0 +1,1 @@
+import{a as o,f as t}from"../chunks/iOeFT_Kk.js";import{h as r}from"../chunks/aCFzPJ4V.js";import{e as p,n,$ as m}from"../chunks/CGPGwuwZ.js";var f=t('<h1>S01E03 · support kb</h1><p><a href="/kb/">Open the knowledge base</a></p>',1);function u(a){var e=f();r("1uha8ag",s=>{p(()=>{m.title="S01E03 · support kb"})}),n(),o(a,e)}export{u as component};
