@@ -46,7 +46,9 @@ test('compiled page contains actual counts, examples and derived desk ref', () =
   assert.match(html, /379/); assert.match(html, /33/);
   assert.match(html, /same subject, same channel, different tenant/);
   assert.match(html, /5 reports read as a one-day move/);
-  assert.ok(html.includes(deskRef('OpenAI coding harness for Hexrays · S01E03')));
+  const signature = read('src/routes/kb/incidents/4471-review/+page.svx').match(/^signature: (.+)$/m)?.[1];
+  assert.ok(signature?.startsWith('v1.'));
+  assert.ok(html.includes(deskRef(signature)));
   assert.doesNotMatch(html, /no desk ref:/);
   assert.match(html, /183 reports arrived before 2 July/);
   assert.match(html, /Engineering update: closed 5 October/);

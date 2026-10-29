@@ -19,7 +19,9 @@ for (const g of groups) {
     reportIds: g.reports.map((r) => r.id).sort(),
   }, null, 2) + '\n');
 }
-const signature = 'OpenAI coding harness for Hexrays · S01E03';
+const page = await readFile(resolve(root, 'src/routes/kb/incidents/4471-review/+page.svx'), 'utf8');
+const signature = page.match(/^signature: (.+)$/m)?.[1];
+if (!signature) throw new Error('The review page needs its course-issued signature.');
 console.log(JSON.stringify({
   rows: raw.length, uniqueReports: reports.length,
   groups: groups.map(({ cause, reports, taggedAs, firstSeen, lastSeen }) => ({ cause, count: reports.length, taggedAs, firstSeen, lastSeen })),

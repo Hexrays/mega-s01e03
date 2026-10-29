@@ -1,17 +1,17 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><link href="../../../_app/immutable/entry/start.BGsX8WHF.js" rel="modulepreload">
+<html lang="en"><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><link href="../../../_app/immutable/entry/start.DW40aLJ9.js" rel="modulepreload">
 		<link href="../../../_app/immutable/chunks/CGPGwuwZ.js" rel="modulepreload">
-		<link href="../../../_app/immutable/chunks/BnNbhMWl.js" rel="modulepreload">
+		<link href="../../../_app/immutable/chunks/BoIWgWCr.js" rel="modulepreload">
 		<link href="../../../_app/immutable/chunks/wnyrBLUM.js" rel="modulepreload">
-		<link href="../../../_app/immutable/entry/app.BcDFRJUM.js" rel="modulepreload">
+		<link href="../../../_app/immutable/entry/app.DrllCJCB.js" rel="modulepreload">
 		<link href="../../../_app/immutable/chunks/CyQj57Ut.js" rel="modulepreload">
 		<link href="../../../_app/immutable/chunks/iOeFT_Kk.js" rel="modulepreload">
 		<link href="../../../_app/immutable/chunks/BLGfGSho.js" rel="modulepreload">
 		<link href="../../../_app/immutable/chunks/C0Fps2ym.js" rel="modulepreload">
 		<link href="../../../_app/immutable/nodes/0.TYod8LQm.js" rel="modulepreload">
 		<link href="../../../_app/immutable/chunks/DXG7tNZM.js" rel="modulepreload">
-		<link href="../../../_app/immutable/nodes/7.VQ4S2r0g.js" rel="modulepreload">
-		<link href="../../../_app/immutable/chunks/DcixkkcN.js" rel="modulepreload">
+		<link href="../../../_app/immutable/nodes/7.DwB8A_N5.js" rel="modulepreload">
+		<link href="../../../_app/immutable/chunks/Cun4Tk4i.js" rel="modulepreload">
 		<link href="../../../_app/immutable/chunks/aCFzPJ4V.js" rel="modulepreload">
 		<link href="../../../_app/immutable/chunks/B2kO4Rao.js" rel="modulepreload">
 		<link href="../../../_app/immutable/chunks/CCwhBzia.js" rel="modulepreload">
@@ -52,19 +52,19 @@ Its subject-only rule conflicts with the rendered examples and is overdue for re
 the kb’s half-year review rule. We preserve that record and replace its operational rule with <a href="/kb/decisions/0002-dedupe-by-cause">decision 0002</a>.</p> <p>Different subjects can share a cause. The same subject can hide different causes.
 The same form channel can lead to different causes when tenants run different form versions.
 An unknown tenant is unclassified: do not merge it just because its subject matches.</p> <div class="try svelte-gq0h2h"><!--[--><fieldset class="svelte-gq0h2h"><legend>report A</legend> <select aria-label="tenant"><!--[--><option selected="">alder.physio</option><option>copper.studio</option><option>harbour.dental</option><option>kettle.books</option><option>lantern.row</option><option>long.table</option><option>morrow.tax</option><option>nine.lanterns</option><option>pale.harbour</option><option>ridge.clinic</option><option>stone.and.sons</option><!--]--></select> <select aria-label="channel"><!--[--><option>app</option><option>email</option><option selected="">form</option><!--]--></select> <input value="Booking on the wrong date" aria-label="subject"/> <code>hint</code></fieldset><fieldset class="svelte-gq0h2h"><legend>report B</legend> <select aria-label="tenant"><!--[--><option>alder.physio</option><option>copper.studio</option><option>harbour.dental</option><option selected="">kettle.books</option><option>lantern.row</option><option>long.table</option><option>morrow.tax</option><option>nine.lanterns</option><option>pale.harbour</option><option>ridge.clinic</option><option>stone.and.sons</option><!--]--></select> <select aria-label="channel"><!--[--><option>app</option><option>email</option><option selected="">form</option><!--]--></select> <input value="Booking on the wrong date" aria-label="subject"/> <code>parser</code></fieldset><!--]--> <p class="verdict svelte-gq0h2h">different causes — keep apart</p></div> <table><thead><tr><th>case</th><th>same subject</th><th>same cause</th></tr></thead><tbody><!--[--><tr><td>app vs email, same tenant</td><td>no</td><td class="svelte-gq0h2h dup">yes</td></tr><tr><td>same subject, same tenant, different channel</td><td>yes</td><td class="svelte-gq0h2h">no</td></tr><tr><td>same subject, same channel, different tenant</td><td>yes</td><td class="svelte-gq0h2h">no</td></tr><tr><td>different subject, same way in</td><td>no</td><td class="svelte-gq0h2h dup">yes</td></tr><tr><td>no tenant on file</td><td>yes</td><td class="svelte-gq0h2h">no</td></tr><!--]--></tbody></table><!----> <h2>Desk procedure</h2> <ol><li>Deduplicate export overlap by report ID.</li> <li>Read the report and resolve its tenant locale, form version and channel.</li> <li>Group only reports with the same supported cause. Keep unknown cases for investigation.</li> <li>File separate engineering tickets and keep report membership, counts and examples with each.</li> <li>Record each closure outcome and its evidence. Distinguish completed from not planned, and reported fixes from independent verification.</li> <li>Rebuild these views when new desk exports arrive. Review this page after a change in the evidence.</li></ol> <h2>Evidence and limits</h2> <ul><li>Inputs: <code>src/lib/data/reports-4471.json</code>, <code>tenants/*.json</code> and <code>desk-notes.json</code>.</li> <li>Running classification: <code>src/lib/kb/causes.ts</code> and <code>locales.ts</code>.</li> <li>Report scope: the provided export only. Closure scope: the later course engineering update, checked 29 October. Neither supplies independent product-test evidence.</li> <li>The classification is a routing rule, not proof that every report body has the same root cause.</li> <li>Public engineering tickets: <a href="https://github.com/Hexrays/mega-s01e03/issues/1" rel="nofollow">parser</a> and <a href="https://github.com/Hexrays/mega-s01e03/issues/2" rel="nofollow">form hint</a>.</li> <li>The source of this page is <code>src/routes/kb/incidents/4471-review/+page.svx</code>.
-Its rendered form is <code>build/kb/incidents/4471-review/index.html</code>.</li></ul> <!--[0--><p class="stamp svelte-1280m42">desk ref <b class="svelte-1280m42">DR-8PN6-H3V3</b></p><!--]--><!----><!----></main> <footer class="svelte-e2jw2j">Pages are written by people. Tables and charts are built from data at render time.</footer></div><!--]--><!----><!--]--><!--]--> <!--[-1--><!--]--><!--]-->
+Its rendered form is <code>build/kb/incidents/4471-review/index.html</code>.</li></ul> <!--[0--><p class="stamp svelte-1280m42">desk ref <b class="svelte-1280m42">DR-YP76-PB50</b></p><!--]--><!----><!----></main> <footer class="svelte-e2jw2j">Pages are written by people. Tables and charts are built from data at render time.</footer></div><!--]--><!----><!--]--><!--]--> <!--[-1--><!--]--><!--]-->
 			
 			<script>
 				{
-					__sveltekit_6bhkyb = {
+					__sveltekit_1kljc41 = {
 						base: new URL("../../..", location).pathname.slice(0, -1)
 					};
 
 					const element = document.currentScript.parentElement;
 
 					Promise.all([
-						import("../../../_app/immutable/entry/start.BGsX8WHF.js"),
-						import("../../../_app/immutable/entry/app.BcDFRJUM.js")
+						import("../../../_app/immutable/entry/start.DW40aLJ9.js"),
+						import("../../../_app/immutable/entry/app.DrllCJCB.js")
 					]).then(([kit, app]) => {
 						kit.start(app, element, {
 							node_ids: [0, 7],

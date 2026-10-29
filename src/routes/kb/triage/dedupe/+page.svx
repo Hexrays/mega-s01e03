@@ -4,7 +4,7 @@ title: 'Triage: duplicate reports'
 owner: support desk
 status: accepted
 reviewed: 2026-10-29
-signature: OpenAI coding harness for Hexrays · S01E03
+signature: v1.eyJzdWIiOiIxNTIxIiwiYXVkIjoiY2hhbGxlbmdlOndoYXQtaXQtc2hvd3MiLCJpYXQiOjE3OTMyODk0MDIsImV4cCI6MTc5MzM3NTgwMn0.DWwx6LCvRIQksl5WthVPWLJta2IWx9NDwX8D4CaNFtI
 ---
 
 <script>
