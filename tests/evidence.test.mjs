@@ -49,4 +49,8 @@ test('compiled page contains actual counts, examples and derived desk ref', () =
   assert.ok(html.includes(deskRef('OpenAI coding harness for Hexrays · S01E03')));
   assert.doesNotMatch(html, /no desk ref:/);
   assert.match(html, /183 reports arrived before 2 July/);
+  assert.match(html, /Engineering update: closed 5 October/);
+  assert.match(html, /closed as completed/);
+  assert.match(html, /closed as not planned/);
+  assert.match(html, /not independently tested product fixes/);
 });

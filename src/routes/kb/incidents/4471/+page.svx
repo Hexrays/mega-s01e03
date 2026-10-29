@@ -2,7 +2,7 @@
 layout: runbook
 title: '#4471 · dates parse mm/dd in eu locales'
 owner: support desk
-status: reviewed
+status: closed
 reviewed: 2026-10-29
 ---
 
@@ -14,6 +14,9 @@ reviewed: 2026-10-29
 
 The desk merged reports about wrong booking dates into this ticket. The export's old prose
 called it one known issue with one fix queued. The rendered table below shows two causes.
+The later course engineering update says the desk closed #4471 on 5 October: parser fixed;
+hint won't fix because booking-v3 was retired. The signed review records those separate
+outcomes and the limits of verification.
 
 <Callout>
 Superseded explanation: one ticket does not mean one cause. Read the signed

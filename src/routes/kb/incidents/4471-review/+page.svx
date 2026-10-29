@@ -2,7 +2,7 @@
 layout: runbook
 title: '#4471 review · two causes, not one'
 owner: harness for Hexrays
-status: investigated
+status: closed
 reviewed: 2026-10-29
 signature: OpenAI coding harness for Hexrays · S01E03
 ---
@@ -17,7 +17,25 @@ signature: OpenAI coding harness for Hexrays · S01E03
 
 The old [incident page](/kb/incidents/4471) calls this one known issue with one fix queued.
 Its rendered cause table contradicts that claim. The export contains two distinct causes.
-“Known” and “queued” do not mean fixed. This review describes the 4 October export, not a live desk feed.
+“Known” and “queued” do not mean fixed. The report analysis below describes the 4 October
+export. The later engineering update supplies the desk's closure outcomes.
+
+## Engineering update: closed 5 October
+
+The [course's engineering update](https://hq.mega.dev/challenges/what-it-shows), checked
+29 October, reports these separate outcomes:
+
+- **Parser — fixed.** The fix description is `fix(dates): parse dd/mm for eu locales`.
+  [Our parser ticket](https://github.com/Hexrays/mega-s01e03/issues/1) is closed as completed,
+  with the owner's approval, based on that desk report.
+- **Hint — won't fix.** The desk retired the `booking-v3` form.
+  [Our hint ticket](https://github.com/Hexrays/mega-s01e03/issues/2) is closed as not planned,
+  with the owner's approval. Retirement is not a correction to the old form.
+
+These are reported desk outcomes, not independently tested product fixes. The course provides
+no linked patch or runnable product. Our local tests validate the analysis and rendered page,
+not the production parser. The five timing anomalies remain unresolved by the supplied evidence.
+The historical report counts and membership do not change when a ticket closes.
 
 ## Separate fixes
 
@@ -67,14 +85,14 @@ An unknown tenant is unclassified: do not merge it just because its subject matc
 2. Read the report and resolve its tenant locale, form version and channel.
 3. Group only reports with the same supported cause. Keep unknown cases for investigation.
 4. File separate engineering tickets and keep report membership, counts and examples with each.
-5. Check the proposed fix against both causes and the timing anomalies. Keep tickets open until verified.
+5. Record each closure outcome and its evidence. Distinguish completed from not planned, and reported fixes from independent verification.
 6. Rebuild these views when new desk exports arrive. Review this page after a change in the evidence.
 
 ## Evidence and limits
 
 - Inputs: `src/lib/data/reports-4471.json`, `tenants/*.json` and `desk-notes.json`.
 - Running classification: `src/lib/kb/causes.ts` and `locales.ts`.
-- Scope: the provided export only. The desk continues to work; this is not proof of its current state.
+- Report scope: the provided export only. Closure scope: the later course engineering update, checked 29 October. Neither supplies independent product-test evidence.
 - The classification is a routing rule, not proof that every report body has the same root cause.
 - Public engineering tickets: [parser](https://github.com/Hexrays/mega-s01e03/issues/1)
   and [form hint](https://github.com/Hexrays/mega-s01e03/issues/2).

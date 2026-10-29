@@ -4,7 +4,10 @@
 
 This repository extends the provided 4 October 2026 export. The original accepted decision
 0001 is unchanged. The new signed review explains two causes and keeps five timing anomalies
-visible without inventing a confirmed third cause.
+visible without inventing a confirmed third cause. The later course engineering update reports
+the parser fixed and the form hint not fixed because booking-v3 was retired. The two public
+tickets are closed as completed and not planned, respectively, with the owner's approval.
+Those desk outcomes have not been independently verified against a runnable product.
 
 - Review source: `src/routes/kb/incidents/4471-review/+page.svx`
 - Rendered review: `rendered/4471-review.html` (self-contained static capture)
